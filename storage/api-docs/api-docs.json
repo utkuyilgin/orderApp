@@ -1,0 +1,258 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My First API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Auth Register",
+                "operationId": "8a56853624e025573120a09a4c75d468",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "Utku Yılgın",
+                                    "email": "utku.387@hotmail.com",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "description": "token",
+                                            "type": "string"
+                                        },
+                                        "msg": {
+                                            "description": "信息",
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "token": "17|srqlOVFa17YdGCpgUYiOIPp7Yw2GcAmr1xbJbr8C"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Auth Login",
+                "operationId": "a3b306d14572d1f4bd6c064b3233e7b8",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "email": "utku.387@hotmail.com",
+                                    "password": "123456"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "description": "token",
+                                            "type": "string"
+                                        },
+                                        "msg": {
+                                            "description": "信息",
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object",
+                                    "example": {
+                                        "token": "17|srqlOVFa17YdGCpgUYiOIPp7Yw2GcAmr1xbJbr8C"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/campaigns/create": {
+            "post": {
+                "tags": [
+                    "Kampanyalar"
+                ],
+                "summary": "Bir kampanya ekle",
+                "operationId": "38a40ca83ca6fb2773657d5a31fb1811",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "min_quantity": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "4 Al 3 Öde",
+                                    "campaign_min_quantity": 3
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/campaigns/author_category": {
+            "post": {
+                "tags": [
+                    "Kampanyalar"
+                ],
+                "summary": "Bir Yazarı ve Kategoriyi Kampanyaya Dahil Et",
+                "operationId": "52c90aec59b5cf855f8a54f0bcf1dae0",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "author_id": {
+                                        "type": "integer"
+                                    },
+                                    "category_id": {
+                                        "type": "integer"
+                                    },
+                                    "campaign_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "author_id": 3,
+                                    "category_id": 1,
+                                    "campaign_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/order/create": {
+            "post": {
+                "tags": [
+                    "Sipariş"
+                ],
+                "summary": "Sipariş oluşturma endpointi.",
+                "operationId": "48fdd559c958da8e951390249c808a82",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "products"
+                                ],
+                                "properties": {
+                                    "products": {
+                                        "type": "array",
+                                        "items": {
+                                            "required": [
+                                                "product_id",
+                                                "quantity"
+                                            ],
+                                            "properties": {
+                                                "product_id": {
+                                                    "type": "integer"
+                                                },
+                                                "quantity": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Order Info"
+                    }
+                }
+            }
+        },
+        "/api/order/{id}": {
+            "get": {
+                "tags": [
+                    "Sipariş"
+                ],
+                "summary": "Bir Siparişi Döner",
+                "operationId": "1003deedfe383a0f9d1479021de16297",
+                "responses": {
+                    "default": {
+                        "description": "Success: Order"
+                    }
+                }
+            }
+        }
+    }
+}
