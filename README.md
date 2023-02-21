@@ -1,6 +1,6 @@
 ## TürkTicaretNet sipariş task'i.
 
-    Merhaba, bu proje Utku Yılgın tarafından hazırlanmış bir RestAPI projesidir. Bu proje TürkTicaretNet tarafından
+- Merhaba, bu proje Utku Yılgın tarafından hazırlanmış bir RestAPI projesidir. Bu proje TürkTicaretNet tarafından
 belirtilen taskları içerir. Kuyruklama sistemi için RabbitMQ, önbellek sistemi için Redis kullanılmıştır.
 
 ## Projenin kurulumu:
