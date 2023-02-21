@@ -16,6 +16,8 @@ belirtilen taskları içerir. Kuyruklama sistemi için RabbitMQ, önbellek siste
     Proje seed edildikten sonra yazar ve kitap kategorisi içeren bir adet seeder'im bulunmakta, task'ta belirttiğiniz gibi Sabahattin Ali'nin herhangi bir kitabından 2 tane alındığı takdirde 3.sü hediye ediliyor.
     Yeni bir yazar ve kategoriyi ilgili kampanyaya set etmek istediğiniz takdirde api/documentation kısmında nasıl yapıldığını anlattım.
 
+    Redis hatası alınırsa, .env içine REDIS_CLIENT=predis ekleyip deneyebilirsiniz.
+
     Teşekkür eder, iyi çalışmalar dilerim.
 
 - Utku Yılgın
